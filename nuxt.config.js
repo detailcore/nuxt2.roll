@@ -26,6 +26,7 @@ export default {
   components: [
     '@/components',
     { path: '@/components/icons/', prefix: 'Icon', extensions: ['vue'] },
+    { path: '@/components/widgets/', prefix: 'Widget', extensions: ['vue'] },
   ],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
@@ -34,10 +35,26 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    // https://google-fonts.nuxtjs.org/getting-started/setup
+    '@nuxtjs/google-fonts',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [['nuxt-purgecss', { enabled: true }]],
+  modules: [['nuxt-purgecss']],
+
+  purgecss: {
+    enabled: true,
+    safelist: ['w-[*', 'h-[*', 'bg-[*', 'z-[*', 'text-[*', 'max-w-[*'],
+  },
+
+  googleFonts: {
+    families: {
+      Neucha: {
+        wght: [400],
+        // ital: [100]
+      },
+    },
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
