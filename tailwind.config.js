@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -10,6 +12,18 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    screens: {
+      xs: { max: '639px' },
+      // => @media (max-width: 639px) { ... }
+
+      md: '980px',
+      // => @media (min-width: 980px) { ... }
+
+      '3xl': '1920px',
+      // => @media (min-width: 1920px) { ... }
+
+      ...defaultTheme.screens,
+    },
   },
   plugins: [],
 }
