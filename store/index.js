@@ -149,6 +149,11 @@ export const getters = {
   GET_NAVBAR(state) {
     return state.modals.navbar
   },
+  GET_SUM_CART(state) {
+    return state.user.cart.reduce((acc, item) => {
+      return acc + item.price * item.cnt
+    }, 0)
+  },
 }
 
 export const mutations = {
@@ -193,5 +198,8 @@ export const mutations = {
     if (item.cnt === 0) {
       state.user.cart = state.user.cart.filter((i) => i.id !== id)
     }
+  },
+  REMOVE_ALL_FROM_CART(state, id) {
+    state.user.cart = state.user.cart.filter((i) => i.id !== id)
   },
 }

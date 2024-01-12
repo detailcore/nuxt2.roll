@@ -1,8 +1,8 @@
 <template>
   <div
-    class="shadow-item mb-1.5 flex max-w-[528px] flex-row justify-between rounded-lg bg-[#FAFAFA] p-4"
+    class="shadow-item mb-1.5 flex max-w-[528px] justify-between rounded-lg bg-[#FAFAFA] p-4"
   >
-    <div class="mr-6">
+    <div>
       <img
         class="max-w-20"
         :src="require(`~/assets/images/products/${image}`)"
@@ -10,8 +10,11 @@
       />
     </div>
 
-    <div class="flex flex-col">
-      <div class="uppercase">{{ title }}</div>
+    <div class="mx-6 flex flex-col">
+      <div class="flex items-center justify-between uppercase">
+        <span>{{ title }}</span>
+        <ProductFavorite :id="id" />
+      </div>
       <div class="font-sans text-[13px] text-[#717171]">{{ desc }}</div>
       <div class="font-sans text-[13px] text-[#717171]">({{ weight }} г)</div>
     </div>
@@ -22,8 +25,13 @@
       <div>Сумма: {{ price * cnt }} ₽</div>
     </div>
 
-    <div class="relative">
-      <div>QWE</div>
+    <div class="ml-5 flex items-center">
+      <div
+        class="-mr-4 flex h-16 w-10 cursor-pointer items-center justify-center rounded-l-full bg-[#312525]"
+        @click="removeAll"
+      >
+        <IconTrashBasket />
+      </div>
     </div>
   </div>
 </template>
@@ -73,6 +81,10 @@ export default {
     },
   },
 
-  methods: {},
+  methods: {
+    removeAll() {
+      this.$store.commit('REMOVE_ALL_FROM_CART', this.id)
+    },
+  },
 }
 </script>

@@ -17,27 +17,45 @@
         :desc="item.desc"
       />
     </div>
+
+    <div class="my-10 text-xl">
+      Общая сумма: <span class="text-[22px]">{{ sum }}</span> ₽
+    </div>
+
+    <div class="mb-10 text-[#121212]">
+      * Сумма заказа для доставки курьером должна составлять не менее 500 ₽
+    </div>
+
+    <div class="mb-11 flex justify-around">
+      <button class="shadow-item rounded-lg bg-white px-6 py-4" @click="close">
+        Вернуться к покупкам
+      </button>
+      <button class="shadow-item rounded-lg bg-[#312525] px-6 py-4 text-white">
+        Оформить заказ
+      </button>
+    </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'CartMain',
 
-  props: {
-    // id: {
-    //   type: Number,
-    //   required: true,
-    // },
-  },
-
   computed: {
+    ...mapGetters({ sum: 'GET_SUM_CART' }),
+
     products() {
       return this.$store.state.user.cart
     },
   },
 
-  methods: {},
+  methods: {
+    close() {
+      this.$store.commit('SET_MODAL_CART', true)
+    },
+  },
 }
 </script>
 

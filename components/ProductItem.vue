@@ -33,10 +33,7 @@
       <CartCounter v-else :id="id" />
     </div>
 
-    <div class="absolute right-8 top-8 cursor-pointer" @click="setFavorite">
-      <IconHeartSelect v-if="isFavorite" />
-      <IconHeartEmpty v-else />
-    </div>
+    <ProductFavorite :id="id" class="absolute right-8 top-8" />
   </div>
 </template>
 

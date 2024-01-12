@@ -24,7 +24,11 @@ export default {
 
   computed: {
     getTitle() {
-      return this.$store.state.links.find((i) => i.link === this.getRoute)
+      return (
+        this.$store.state.links.find((i) => i.link === this.getRoute) || {
+          name: 'Меню',
+        }
+      )
     },
     getRoute() {
       return this.$route.query.menu

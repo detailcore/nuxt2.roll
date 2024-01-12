@@ -12,11 +12,6 @@
         class="my-3"
       />
     </nav>
-
-    <div
-      class="absolute bottom-0 left-0 right-0 top-0 z-[1] h-screen w-screen bg-[#3c4b61]/60 backdrop-blur-md"
-      @click="show"
-    ></div>
   </div>
 </template>
 
@@ -33,12 +28,6 @@ export default {
   watch: {
     $route(to, from) {
       this.$store.commit('SET_MODAL_NAVBAR', true)
-    },
-  },
-
-  methods: {
-    show() {
-      this.$store.commit('SET_MODAL_NAVBAR')
     },
   },
 }
