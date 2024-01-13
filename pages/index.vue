@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="3xl:-mx-[19px] mx-4 flex flex-wrap md:-mx-[18px]">
+    <div class="mx-4 flex flex-wrap md:-mx-[18px] 3xl:-mx-[19px]">
       <ProductItem
         v-for="item of products"
         :id="item.id"
@@ -17,7 +17,7 @@
 
     <NavBar v-if="menuIsShow" />
 
-    <div class="3xl:block hidden">
+    <div class="hidden 3xl:block">
       <div class="bg-image bg-image__tl"></div>
       <div class="bg-image bg-image__tr"></div>
       <div class="bg-image bg-image__bl"></div>

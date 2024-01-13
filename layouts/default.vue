@@ -6,7 +6,7 @@
 
     <NavBarSub />
 
-    <Nuxt class="3xl:max-w-[1170px] mx-auto md:max-w-[870px]" />
+    <Nuxt class="mx-auto md:max-w-[870px] 3xl:max-w-[1170px]" />
 
     <RegionFooter />
   </div>
