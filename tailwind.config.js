@@ -13,6 +13,8 @@ module.exports = {
   theme: {
     extend: {},
     screens: {
+      ...defaultTheme.screens,
+
       xs: { max: '639px' },
       // => @media (max-width: 639px) { ... }
 
@@ -21,8 +23,6 @@ module.exports = {
 
       '3xl': '1920px',
       // => @media (min-width: 1920px) { ... }
-
-      ...defaultTheme.screens,
     },
   },
   plugins: [],
