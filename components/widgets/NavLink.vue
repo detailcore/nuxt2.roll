@@ -1,9 +1,5 @@
 <template>
-  <NuxtLink
-    :to="`?${type}=${link}`"
-    class="text-nowrap rounded-full px-4 py-3 text-center uppercase"
-    :exact-active-class="activeClass"
-  >
+  <NuxtLink :to="`?${type}=${link}`" :exact-active-class="activeClass">
     {{ name }}
   </NuxtLink>
 </template>

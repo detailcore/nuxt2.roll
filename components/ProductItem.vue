@@ -2,11 +2,12 @@
   <div
     :class="[
       selectedClass,
-      'shadow-item relative my-8 flex w-full flex-col rounded-lg p-7',
+      'shadow-item 3xl:basis-1/5 relative m-4 min-w-[270px] shrink grow flex-col rounded-lg p-7 sm:basis-1/3 md:w-[270px] md:shrink-0 md:grow-0 md:basis-1/4',
     ]"
   >
     <div class="flex w-full justify-center">
       <img
+        class="w-[130px]"
         :src="require(`~/assets/images/products/${image}`)"
         alt="name product"
       />

@@ -9,7 +9,7 @@
         :name="name"
         :link="link"
         type="menu"
-        class="my-3"
+        class="my-3 text-nowrap rounded-full px-4 py-3 text-center uppercase"
       />
     </nav>
   </div>

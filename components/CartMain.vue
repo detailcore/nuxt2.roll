@@ -1,10 +1,10 @@
 <template>
   <div
-    class="fixed right-0 top-0 z-10 h-screen w-full max-w-[612px] overflow-y-auto bg-[#EBE1D7] px-10"
+    class="fixed right-0 top-0 z-10 h-screen w-full min-w-80 max-w-[612px] overflow-y-auto bg-[#EBE1D7] px-10 xs:px-1"
   >
     <TitlePage class="mb-8 mt-10" title="Корзина" size="48px" />
 
-    <div>
+    <div class="flex flex-col items-center">
       <CartItem
         v-for="item of products"
         :id="item.id"
@@ -27,10 +27,15 @@
     </div>
 
     <div class="mb-11 flex justify-around">
-      <button class="shadow-item rounded-lg bg-white px-6 py-4" @click="close">
+      <button
+        class="shadow-item rounded-lg bg-white px-6 py-4 xs:px-2 xs:py-1"
+        @click="close"
+      >
         Вернуться к покупкам
       </button>
-      <button class="shadow-item rounded-lg bg-[#312525] px-6 py-4 text-white">
+      <button
+        class="shadow-item rounded-lg bg-[#312525] text-white sm:px-6 sm:py-4 xs:px-2 xs:py-1"
+      >
         Оформить заказ
       </button>
     </div>

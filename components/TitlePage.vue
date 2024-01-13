@@ -1,6 +1,6 @@
 <template>
   <h1
-    class="my-5 flex flex-row items-center justify-center text-2xl"
+    class="3xl:text-6xl my-5 flex flex-row items-center justify-center text-2xl md:text-5xl"
     :style="getStyle"
   >
     {{ title === '' ? getTitle?.name : title }}

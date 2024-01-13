@@ -1,22 +1,26 @@
 <template>
   <div
-    class="shadow-item mb-1.5 flex max-w-[528px] justify-between rounded-lg bg-[#FAFAFA] p-4"
+    class="shadow-item mb-1.5 flex max-w-[528px] justify-between rounded-lg bg-[#FAFAFA] p-4 xs:p-1"
   >
-    <div>
+    <div class="flex flex-col justify-center">
       <img
-        class="max-w-20"
+        class="max-w-20 xs:max-w-12"
         :src="require(`~/assets/images/products/${image}`)"
         :alt="title"
       />
     </div>
 
-    <div class="mx-6 flex flex-col">
+    <div class="mx-6 flex flex-col xs:mx-2">
       <div class="flex items-center justify-between uppercase">
         <span>{{ title }}</span>
         <ProductFavorite :id="id" />
       </div>
-      <div class="font-sans text-[13px] text-[#717171]">{{ desc }}</div>
-      <div class="font-sans text-[13px] text-[#717171]">({{ weight }} г)</div>
+      <div class="font-sans text-[13px] text-[#717171] xs:text-xs">
+        {{ desc }}
+      </div>
+      <div class="font-sans text-[13px] text-[#717171] xs:text-xs">
+        ({{ weight }} г)
+      </div>
     </div>
 
     <div class="flex flex-col justify-between">
@@ -25,7 +29,7 @@
       <div>Сумма: {{ price * cnt }} ₽</div>
     </div>
 
-    <div class="ml-5 flex items-center">
+    <div class="ml-5 flex items-center xs:hidden">
       <div
         class="-mr-4 flex h-16 w-10 cursor-pointer items-center justify-center rounded-l-full bg-[#312525]"
         @click="removeAll"
