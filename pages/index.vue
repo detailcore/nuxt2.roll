@@ -1,12 +1,6 @@
 <template>
   <div>
-    <RegionHeader />
-
-    <TitlePage />
-
-    <NavBarSub class="mx-3" />
-
-    <div class="m-5">
+    <div class="3xl:-mx-[19px] mx-4 flex flex-wrap md:-mx-[18px]">
       <ProductItem
         v-for="item of products"
         :id="item.id"
@@ -22,6 +16,12 @@
     <CartMain v-if="cartIsShow" />
 
     <NavBar v-if="menuIsShow" />
+
+    <div class="3xl:block hidden">
+      <div class="bg-image bg-image__tl"></div>
+      <div class="bg-image bg-image__tr"></div>
+      <div class="bg-image bg-image__bl"></div>
+    </div>
 
     <div
       v-if="cartIsShow || navIsShow"
@@ -60,3 +60,32 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+.bg-image {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-position:
+    top left,
+    top right,
+    bottom left;
+  background-image: url('~/assets/images/bg-tl.png'),
+    url('~/assets/images/bg-tr.png'), url('~/assets/images/bg-bl.png');
+  position: fixed;
+  z-index: -1;
+
+  &.bg-image__tl {
+    top: 0;
+    left: 0;
+  }
+  &.bg-image__tr {
+    top: 0;
+    right: 0;
+  }
+  &.bg-image__bl {
+    bottom: 0;
+    left: 0;
+  }
+}
+</style>
