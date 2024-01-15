@@ -2,6 +2,7 @@ export const state = () => ({
   modals: {
     navbar: false,
     cart: false,
+    checkout: false,
   },
 
   links: [
@@ -134,11 +135,11 @@ export const state = () => ({
       },
       {
         cnt: 1,
-        id: 4,
-        image: '4_.png',
-        title: 'ролл веган',
-        weight: 230,
-        price: 210,
+        id: 5,
+        image: '5_.png',
+        title: 'ролл чиро',
+        weight: 185,
+        price: 215,
         desc: 'Огурец, авокадо, помидор, болгарский перец, листья салата, кунжут',
       },
     ],
@@ -173,6 +174,12 @@ export const mutations = {
     state.modals.navbar = !state.modals.navbar
     if (close) {
       state.modals.navbar = false
+    }
+  },
+  SET_MODAL_CHECKOUT(state, close = false) {
+    state.modals.checkout = !state.modals.checkout
+    if (close) {
+      state.modals.checkout = false
     }
   },
   SET_FAVORITES(state, id) {
