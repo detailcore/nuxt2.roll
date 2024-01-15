@@ -13,7 +13,7 @@
       />
     </div>
 
-    <CartMain v-if="cartIsShow" />
+    <CartMain v-if="cartIsShow || checkoutIsShow" />
 
     <NavBar v-if="menuIsShow" />
 
@@ -24,7 +24,7 @@
     </div>
 
     <div
-      v-if="cartIsShow || navIsShow"
+      v-if="cartIsShow || navIsShow || checkoutIsShow"
       class="fixed bottom-0 left-0 right-0 top-0 z-[1] bg-[#3c4b61]/60 backdrop-blur-md"
       @click="close"
     ></div>
@@ -46,6 +46,9 @@ export default {
     navIsShow() {
       return this.$store.state.modals.navbar
     },
+    checkoutIsShow() {
+      return this.$store.state.modals.checkout
+    },
 
     products() {
       return this.$store.state.products
@@ -56,6 +59,7 @@ export default {
     close() {
       this.$store.commit('SET_MODAL_CART', true)
       this.$store.commit('SET_MODAL_NAVBAR', true)
+      this.$store.commit('SET_MODAL_CHECKOUT', true)
     },
   },
 }
