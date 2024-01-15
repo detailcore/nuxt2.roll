@@ -272,7 +272,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .form {
   label {
     position: relative;

@@ -17,7 +17,11 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['@/assets/styles/main.scss'],
+  css: [{ src: '@/assets/styles/main.scss', lang: 'scss' }],
+
+  router: {
+    prefetchLinks: false, // отключить предварительную загрузку компонента, глобально (для nuxt-link)
+  },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -40,12 +44,7 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [['nuxt-purgecss']],
-
-  purgecss: {
-    enabled: true,
-    safelist: ['w-[*', 'h-[*', 'bg-[*', 'z-[*', 'text-[*', 'max-w-[*'],
-  },
+  modules: [],
 
   googleFonts: {
     families: {
@@ -58,12 +57,39 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    extend(config) {
+    extend(config, ctx) {
+      if (ctx && ctx.isClient) {
+        config.optimization.splitChunks.maxSize = 249856
+      }
       config.module.rules.push({
         test: /\.mjs$/,
         include: /node_modules/,
         type: 'javascript/auto',
       })
+    },
+
+    extractCSS: true,
+
+    splitChunks: {
+      layouts: true,
+      pages: true,
+      commons: true,
+    },
+
+    html: {
+      minify: {
+        collapseBooleanAttributes: true,
+        decodeEntities: true,
+        minifyCSS: true,
+        minifyJS: true,
+        processConditionalComments: true,
+        removeEmptyAttributes: true,
+        removeRedundantAttributes: true,
+        trimCustomFragments: true,
+        useShortDoctype: true,
+        preserveLineBreaks: false,
+        collapseWhitespace: true,
+      },
     },
   },
 }
